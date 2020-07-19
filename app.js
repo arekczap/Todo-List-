@@ -35,29 +35,24 @@ const addTask = (e) => {
     } else {
         addInvalidLabel('false');
 
-
-
-
-        // tasks.taskID.push();
-
-
         //dodawanie elementu do html 
         const liElement = document.createElement('li');
         liElement.className = 'task__item';
-        liElement.dataset.id = taskNumber - 1;
-        liElement.innerHTML = `<div class="task__container" data-id=${taskNumber - 1}><li class="task">${getDom.input.value}</li><div class="task__content"><button class="finish__button button"><span class="icon-ok"></span></button><button class="remove__button button " data-id=${taskNumber - 1}><span class="icon-trash-empty"></span></button></div></div>`;
+        liElement.dataset.id = taskNumber;
+        liElement.innerHTML = `<div class="task__container"><li class="task">${getDom.input.value}</li><div class="task__content"><button class="finish__button button"><span class="icon-ok"></span></button><button class="remove__button button " data-id=${taskNumber - 1}><span class="icon-trash-empty"></span></button></div></div>`;
         getDom.taskList.append(liElement);
+        getDom.input.value = '';
 
         // document.querySelector('.remove__button').dataset.id = tasks.taskID[taskNumber];
-        tasks.push(getDom.input.value);
+
+
+        // tasks.push(getDom.input.value);
         taskNumber++
 
-        tasks.forEach(task => {
-            getDom.taskList.append(liElement);
-        })
 
-
-        getDom.input.value = '';
+        // tasks.forEach(task => {
+        //     getDom.taskList.append(liElement);
+        // })
 
         liElement.querySelector('.remove__button').addEventListener('click', removeTask);
 
@@ -65,13 +60,17 @@ const addTask = (e) => {
 };
 
 const removeTask = (e) => {
-    const index = e.target.parentNode.parentNode.parentNode.dataset.id;
+    // const index = e.target.parentNode.parentNode.parentNode.dataset.id;
 
-    tasks.splice(index, 1);
-    console.log(tasks);
+    // tasks.splice(index, 1);
+    // console.log(tasks);
 
-    document.querySelector('.task__item').remove();
+    // e.target.parentNode.parentNode.parentNode.parentNode.remove();
 
+    //TODO: jeżeli klikam w ikonkę usunięcia to jest inny parrentnode a jak w czerwone tło bez ikonki to jest inne parentNode  poprawić
+    console.log(e.target.parentNode.parentNode.parentNode.parentNode);
+
+    // document.querySelector('.task__item').parentNode.parentNode.remove();
     // console.log(`klikam element  o id: ${id}`)
 
 
