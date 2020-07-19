@@ -1,0 +1,252 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(249, 249, 249, 1) 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+    width: 50%;
+    /* border: 1px solid black; */
+    padding: 4rem;
+}
+
+.section__header {
+    margin-bottom: 3rem;
+}
+
+.logo {
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+}
+
+.logo__name {
+    /* text-transform: uppercase; */
+    font-weight: 800;
+    letter-spacing: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading__primary {
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.icon-resize-full::before {
+    margin: 0;
+    font-size: 3.7rem;
+    margin-left: 0.5rem;
+}
+
+.section__main {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    width: 100%;
+    position: relative;
+    margin-bottom: 2rem;
+    transition: top 0.2s linear;
+}
+
+.button {
+    width: 3.8rem;
+    height: 3.8rem;
+    background-color: #6c76e0;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.button__add-task {
+    background-color: #6c76e0;
+    border: none;
+    border-radius: 10%;
+    right: 0;
+    position: absolute;
+    cursor: pointer;
+    transition: box-shadow 0.1s linear;
+}
+
+.button__add-task:hover {
+    -webkit-box-shadow: 0px 0px 10px -2px rgba(108, 118, 224, 1);
+    -moz-box-shadow: 0px 0px 10px -2px rgba(108, 118, 224, 1);
+    box-shadow: 0px 0px 10px -2px rgba(108, 118, 224, 1);
+}
+
+.button:focus {
+    outline: none;
+}
+
+.input__label {
+    position: absolute;
+    top: 1rem;
+    left: 1.2rem;
+    font-size: 1.2rem;
+    color: red;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: none;
+    transition: 0.3s linear;
+}
+
+.input__task {
+    color: #847399;
+    font-weight: 500;
+    height: 3.8rem;
+    width: 100%;
+    font-size: 1.8rem;
+    border: 2px solid #6cb3e0;
+    border-radius: 3px;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    transition: border 0.3s linear;
+}
+
+.input__task::placeholder {
+    color: #847399;
+    font-weight: 500;
+}
+
+.input__task:focus {
+    outline: none;
+    /* backface-visibility: hidden; */
+    /* border: 2px solid red; */
+}
+
+.input__task:focus:invalid {
+    border: 2px solid red;
+}
+
+/* .input__task:valid {
+  border: 2px solid #6cb3e0;
+} */
+
+.icon-plus::before,
+.icon-ok::before,
+.icon-trash-empty::before {
+    margin: 0;
+    font-size: 1.6rem;
+    color: white;
+}
+
+.tasks__list {
+    list-style: none;
+}
+
+.task__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #6cb3e0;
+}
+
+.task {
+    display: block;
+    padding-left: 1rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.done {
+    color: gray;
+    text-decoration: line-through;
+}
+
+.task__content {
+    display: flex;
+}
+
+.finish__button {
+    background-color: #50991c;
+    width: 3.5rem;
+    height: 3.5rem;
+    transition: 0.1s linear;
+}
+
+.finish__button:hover {
+    -webkit-box-shadow: 0px 0px 10px 📧 2px rgba(80, 153, 28, 1);
+    -moz-box-shadow: 0px 0px 10px -2px rgba(80, 153, 28, 1);
+    box-shadow: 0px 0px 10px -2px rgba(80, 153, 28, 1);
+}
+
+.remove__button {
+    background-color: #993824;
+    width: 3.5rem;
+    height: 3.5rem;
+    transition: 0.1s linear;
+}
+
+.remove__button:hover {
+    -webkit-box-shadow: 0px 0px 10px -2px rgba(153, 56, 36, 1);
+    -moz-box-shadow: 0px 0px 10px -2px rgba(153, 56, 36, 1);
+    box-shadow: 0px 0px 10px -2px rgba(153, 56, 36, 1);
+}
+
+/* MEDIA QUERIES  */
+
+@media (max-width: 1600px) {
+    html {
+        font-size: 58%;
+    }
+
+    .container {
+        width: 70%;
+        padding: 4rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 54%;
+    }
+
+    .container {
+        width: 80%;
+        padding: 4rem;
+    }
+}
+
+@media (max-width: 800px) {
+    html {
+        font-size: 52%;
+    }
+
+    .container {
+        width: 90%;
+        padding: 3rem;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 47%;
+    }
+
+    .container {
+        width: 100%;
+        padding: 2rem;
+    }
+}
