@@ -10,8 +10,6 @@ const getDom = {
 taskNumber = 0;
 const tasks = [];
 
-
-
 // dodawanie label w przypadku nie wprowadzenia wartości
 const addInvalidLabel = (state) => {
     if (state == 'true') {
@@ -27,7 +25,6 @@ const addInvalidLabel = (state) => {
 const addTask = (e) => {
     e.preventDefault();
 
-
     //sprawdzanie czy input nie jest pusty czy nie ma białych spacji
     if (getDom.input.value.trim() == '' || getDom.input.value.trim() == null || getDom.input.value.trim() == " ") {
         addInvalidLabel('true');
@@ -39,7 +36,7 @@ const addTask = (e) => {
         const liElement = document.createElement('li');
         liElement.className = 'task__item';
         liElement.dataset.id = taskNumber;
-        liElement.innerHTML = `<div class="task__container"><li class="task">${getDom.input.value}</li><div class="task__content"><button class="finish__button button"><span class="icon-ok"></span></button><button class="remove__button button " data-id=${taskNumber - 1}><span class="icon-trash-empty"></span></button></div></div>`;
+        liElement.innerHTML = `<div class="task__container"><li class="task">${getDom.input.value}</li><div class="task__content"><button class="finish__button button"><span class="icon-ok"></span></button><button class="remove__button button " data-id=${taskNumber}><span class="icon-trash-empty"></button></span></div></div>`;
         getDom.taskList.append(liElement);
         getDom.input.value = '';
 
@@ -47,37 +44,28 @@ const addTask = (e) => {
 
 
         // tasks.push(getDom.input.value);
-        taskNumber++
+        taskNumber++;
 
 
         // tasks.forEach(task => {
         //     getDom.taskList.append(liElement);
         // })
 
-        liElement.querySelector('.remove__button').addEventListener('click', removeTask);
 
+
+        //width i height ikony usunięcia na 100% i event na ikone zmaiast na button
+        liElement.querySelector('.icon-trash-empty').addEventListener('click', removeTask);
     };
 };
 
 const removeTask = (e) => {
-    // const index = e.target.parentNode.parentNode.parentNode.dataset.id;
-
-    // tasks.splice(index, 1);
-    // console.log(tasks);
-
-    // e.target.parentNode.parentNode.parentNode.parentNode.remove();
-
-    //TODO: jeżeli klikam w ikonkę usunięcia to jest inny parrentnode a jak w czerwone tło bez ikonki to jest inne parentNode  poprawić
-    console.log(e.target.parentNode.parentNode.parentNode.parentNode);
-
-    // document.querySelector('.task__item').parentNode.parentNode.remove();
-    // console.log(`klikam element  o id: ${id}`)
-
-
+    e.target.parentNode.parentNode.parentNode.parentNode.remove();
 
 };
 
 
 
 getDom.addButton.addEventListener('click', addTask);
+
+//event na nacisnięcie przycisku po czym label w formularzu zostanie schowana
 getDom.input.addEventListener('keypress', () => addInvalidLabel('false'));
