@@ -176,6 +176,7 @@ body {
     font-size: 1.8rem;
     font-weight: 600;
     letter-spacing: 1px;
+    text-decoration: none;
 }
 
 .done {
@@ -192,6 +193,10 @@ body {
     width: 3.5rem;
     height: 3.5rem;
     transition: 0.1s linear;
+}
+
+.finished {
+    opacity: .5;
 }
 
 .finish__button:hover {
