@@ -6,6 +6,10 @@ const getDom = {
 };
 
 const tasks = [];
+const finishedWithIf = [];
+const newTasksWithoutFinished = [];
+const newTasks = [];
+const ifFinished = [];
 let finishedTask;
 
 // dodawanie label w przypadku nie wprowadzenia wartości
@@ -21,9 +25,22 @@ const addInvalidLabel = (state) => {
 
 const reloadArray = () => {
   getDom.taskList.textContent = "";
+  finishedWithIf.length = 0;
+  newTasks.length = 0;
 
   tasks.forEach((task, index) => {
     task.dataset.id = index;
+    finishedWithIf.push(ifFinished[index]);
+    finishedWithIf.push(task);
+
+
+    // TODO: zrobić sortowanie na noiwą tablicę, jeżeli true to leci na dół tablicy  a jeżeli nie wykonane to leci na górę
+    finishedWithIf.forEach((finish, index) => {
+
+      if ()
+
+
+    });
     getDom.taskList.append(task);
   });
 
@@ -45,9 +62,9 @@ const removeTask = (e) => {
 };
 
 const finishTask = (e) => {
-  finishedTask = true;
   const finishButton = e.target.parentNode;
   const taskValue = e.target.parentNode.parentNode.parentNode.firstChild;
+  const idTaskLi = e.target.parentNode.parentNode.parentNode.parentNode;
   finishButton.classList.toggle("finished");
 
   if (taskValue.style.textDecoration === "line-through") {
@@ -57,6 +74,12 @@ const finishTask = (e) => {
     taskValue.style.textDecoration = "line-through";
     taskValue.style.opacity = ".5";
   }
+
+  ifFinished[idTaskLi.dataset.id] === "false"
+    ? (ifFinished[idTaskLi.dataset.id] = "true")
+    : (ifFinished[idTaskLi.dataset.id] = "false");
+
+  reloadArray();
 };
 
 const addTask = (e) => {
@@ -71,7 +94,10 @@ const addTask = (e) => {
     var liElement = createLiElement();
     //dodawanie taska do tablicy
     tasks.push(liElement);
+    ifFinished.push("false");
+
     // reload tablicy, odświeżenie id
+
     reloadArray();
 
     //usuwanie tasku
