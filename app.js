@@ -6,10 +6,9 @@ const getDom = {
 };
 
 const tasks = [];
-const finishedWithIf = [];
+const newTasksWithFinished = [];
 const newTasksWithoutFinished = [];
-const newTasks = [];
-const ifFinished = [];
+let sortedArray = [];
 let finishedTask;
 
 // dodawanie label w przypadku nie wprowadzenia wartości
@@ -25,22 +24,23 @@ const addInvalidLabel = (state) => {
 
 const reloadArray = () => {
   getDom.taskList.textContent = "";
-  finishedWithIf.length = 0;
-  newTasks.length = 0;
+  newTasksWithFinished.length = 0;
+  newTasksWithoutFinished.length = 0;
+  sortedArray.length = 0;
 
   tasks.forEach((task, index) => {
+    if (task.dataset.finished == "true") {
+      newTasksWithFinished.push(task);
+    } else if (task.dataset.finished == "false") {
+      newTasksWithoutFinished.push(task);
+    }
+
     task.dataset.id = index;
-    finishedWithIf.push(ifFinished[index]);
-    finishedWithIf.push(task);
+  });
 
+  sortedArray = newTasksWithoutFinished.concat(newTasksWithFinished);
 
-    // TODO: zrobić sortowanie na noiwą tablicę, jeżeli true to leci na dół tablicy  a jeżeli nie wykonane to leci na górę
-    finishedWithIf.forEach((finish, index) => {
-
-      if ()
-
-
-    });
+  sortedArray.forEach((task) => {
     getDom.taskList.append(task);
   });
 
@@ -75,9 +75,7 @@ const finishTask = (e) => {
     taskValue.style.opacity = ".5";
   }
 
-  ifFinished[idTaskLi.dataset.id] === "false"
-    ? (ifFinished[idTaskLi.dataset.id] = "true")
-    : (ifFinished[idTaskLi.dataset.id] = "false");
+  idTaskLi.dataset.finished === "false" ? (idTaskLi.dataset.finished = "true") : (idTaskLi.dataset.finished = "false");
 
   reloadArray();
 };
@@ -92,12 +90,12 @@ const addTask = (e) => {
     addInvalidLabel("false");
     //tworzenie elementu li
     var liElement = createLiElement();
+    liElement.dataset.finished = "false";
+
     //dodawanie taska do tablicy
     tasks.push(liElement);
-    ifFinished.push("false");
 
     // reload tablicy, odświeżenie id
-
     reloadArray();
 
     //usuwanie tasku
