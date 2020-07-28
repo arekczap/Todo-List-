@@ -20,7 +20,8 @@
         <h1 class="heading__primary">Todo List</h1>
       </section>
       <form class="section__main">
-        <label for="task" class="input__label" >Enter the task</label>
+        <span class="main__search"><img class="main__search-icon" src="/assets/search-black-18dp.svg" alt="search icon" data-clicked = 'false'><div class="search-box" data-clicked = 'false'></div></span>
+        <label for="task" class="input__label "data-active = 'false' >Enter the task</label>
         <input type="text" class="input__task" name="task" placeholder="Add New Task..."  required autocomplete="off"/>
         <button class="button__add-task button ">
           <span class="icon-plus"></span>
@@ -43,6 +44,9 @@
       </section>
     </main>
 
+    <script src="/node_modules/animejs/lib/anime.es.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
+
+

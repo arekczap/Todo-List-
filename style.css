@@ -58,14 +58,66 @@ body {
 }
 
 .section__main {
+    position: relative;
     display: flex;
     align-items: center;
     height: 4rem;
     width: 100%;
     position: relative;
     margin-bottom: 2rem;
-    transition: top 0.2s linear;
+    /* transition: top 0.2s linear; */
 }
+
+.main__search {
+    width: 30%;
+    height: 4rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    top: -4.5rem;
+    position: absolute;
+}
+
+.main__search-icon {
+    width: 3rem;
+    /* border-radius: 50%; */
+    position: absolute;
+    left: .5rem;
+    cursor: pointer;
+    display: block;
+
+    /* width: 3rem; */
+    /* height: 3rem; */
+    /* margin: 0; */
+    /* font-size: 2rem; */
+    /* transition: all 1s; */
+}
+
+.search-box[data-clicked='true'] {
+
+    border-radius: none;
+    height: 0;
+    width: 0;
+    position: absolute;
+
+}
+
+.main__search-icon[data-clicked='true'] {
+    border-right: 1px solid gray;
+}
+
+.search-box[data-clicked='true'] {
+    border: 1px solid black;
+
+    border-radius: 20px;
+    height: 90%;
+    width: 100%;
+    position: absolute;
+
+}
+
+
+
 
 .button {
     width: 3.8rem;
@@ -100,15 +152,27 @@ body {
 
 .input__label {
     position: absolute;
-    top: 1rem;
+    top: .8rem;
     left: 1.2rem;
     font-size: 1.2rem;
     color: red;
     font-weight: 700;
     letter-spacing: 1px;
-    display: none;
-    transition: 0.3s linear;
+    transition: 0.2s linear;
+    visibility: hidden;
+
+    z-index: -1;
+    /* opacity: 0; */
 }
+
+.input__label[data-active="true"] {
+
+    visibility: visible;
+    top: -1.5rem;
+    /* z-index: -1; */
+    /* opacity: 1; */
+}
+
 
 .input__task {
     color: #847399;
@@ -120,7 +184,7 @@ body {
     border-radius: 3px;
     padding: 0.5rem;
     padding-left: 1rem;
-    transition: border 0.3s linear;
+    transition: border .3s linear;
 }
 
 .input__task::placeholder {
@@ -168,6 +232,7 @@ body {
     padding-bottom: 1rem;
     margin-bottom: 1.5rem;
     border-bottom: 1px solid #6cb3e0;
+
 }
 
 .task {
@@ -177,6 +242,12 @@ body {
     font-weight: 600;
     letter-spacing: 1px;
     text-decoration: none;
+
+}
+
+.task__item[data-finished='true'] .task__container .task {
+    text-decoration: line-through;
+    opacity: .5;
 }
 
 .done {
@@ -263,3 +334,8 @@ body {
         padding: 2rem;
     }
 }
+
+
+
+
+/* KEYFRAMES  */

@@ -13,13 +13,12 @@ let finishedTask;
 
 // dodawanie label w przypadku nie wprowadzenia wartości
 const addInvalidLabel = (state) => {
-  if (state == "true") {
-    getDom.labelInput.style.top = "-1.5rem";
-    getDom.labelInput.style.display = "block";
-  } else {
-    getDom.labelInput.style.top = "1rem";
-    getDom.labelInput.style.display = "none";
-  }
+
+
+  state == "true" ?
+    getDom.labelInput.dataset.active = "true" :
+    getDom.labelInput.dataset.active = "false";
+
 };
 
 const reloadArray = () => {
@@ -29,11 +28,8 @@ const reloadArray = () => {
   sortedArray.length = 0;
 
   tasks.forEach((task, index) => {
-    if (task.dataset.finished == "true") {
-      newTasksWithFinished.push(task);
-    } else if (task.dataset.finished == "false") {
-      newTasksWithoutFinished.push(task);
-    }
+    task.dataset.finished == "true" ? newTasksWithFinished.push(task) : newTasksWithoutFinished.push(task);
+
 
     task.dataset.id = index;
   });
@@ -67,15 +63,9 @@ const finishTask = (e) => {
   const idTaskLi = e.target.parentNode.parentNode.parentNode.parentNode;
   finishButton.classList.toggle("finished");
 
-  if (taskValue.style.textDecoration === "line-through") {
-    taskValue.style.textDecoration = "none";
-    taskValue.style.opacity = "1";
-  } else {
-    taskValue.style.textDecoration = "line-through";
-    taskValue.style.opacity = ".5";
-  }
-
-  idTaskLi.dataset.finished === "false" ? (idTaskLi.dataset.finished = "true") : (idTaskLi.dataset.finished = "false");
+  idTaskLi.dataset.finished === "false" ?
+    (idTaskLi.dataset.finished = "true") :
+    (idTaskLi.dataset.finished = "false");
 
   reloadArray();
 };
@@ -96,6 +86,7 @@ const addTask = (e) => {
     tasks.push(liElement);
 
     // reload tablicy, odświeżenie id
+
     reloadArray();
 
     //usuwanie tasku
