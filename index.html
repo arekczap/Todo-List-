@@ -9,7 +9,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="icons/css/fontello.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
     <main class="container">
@@ -18,9 +18,10 @@
           <span class="logo__name">a.cz <span class="icon-resize-full"></span></span></span>
         </div>
         <h1 class="heading__primary">Todo List</h1>
+        <span class="main__search"><input type="text" class="search__input" placeholder="Search a task"><img class="main__search-icon" src="assets/search-black-18dp.svg" alt="search icon" data-clicked = 'false'></span>
       </section>
       <form class="section__main">
-        <span class="main__search"><img class="main__search-icon" src="/assets/search-black-18dp.svg" alt="search icon" data-clicked = 'false'><div class="search-box" data-clicked = 'false'></div></span>
+        
         <label for="task" class="input__label "data-active = 'false' >Enter the task</label>
         <input type="text" class="input__task" name="task" placeholder="Add New Task..."  required autocomplete="off"/>
         <button class="button__add-task button ">
@@ -44,8 +45,8 @@
       </section>
     </main>
 
-    <script src="/node_modules/animejs/lib/anime.es.js"></script>
-    <script src="app.js"></script>
+   
+    <script src="js/app.js"></script>
   </body>
 </html>
 

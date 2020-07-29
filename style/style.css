@@ -8,21 +8,17 @@
 
 html {
     font-size: 62.5%;
+    height: 100vh;
 }
 
 body {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(249, 249, 249, 1) 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: rgba(249, 249, 249, 1);
     font-family: "Roboto", sans-serif;
 }
 
 .container {
     width: 50%;
-    /* border: 1px solid black; */
+    margin: 2rem auto;
     padding: 4rem;
 }
 
@@ -36,7 +32,6 @@ body {
 }
 
 .logo__name {
-    /* text-transform: uppercase; */
     font-weight: 800;
     letter-spacing: 3px;
     display: flex;
@@ -63,47 +58,39 @@ body {
     align-items: center;
     height: 4rem;
     width: 100%;
-    position: relative;
-    margin-bottom: 2rem;
+    /* position: relative; */
+    /* margin-bottom: rem; */
     /* transition: top 0.2s linear; */
 }
 
 .main__search {
-    width: 30%;
-    height: 4rem;
+    width: 100%;
+    margin-top: 1rem;
+    height: 3.7rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    top: -4.5rem;
-    position: absolute;
+    top: -6rem;
+
+    border-radius: 3px;
+
 }
 
 .main__search-icon {
     width: 3rem;
-    /* border-radius: 50%; */
-    position: absolute;
-    left: .5rem;
+    /* position: absolute; */
+    margin-right: .5rem;
     cursor: pointer;
-    display: block;
-
-    /* width: 3rem; */
-    /* height: 3rem; */
-    /* margin: 0; */
-    /* font-size: 2rem; */
-    /* transition: all 1s; */
-}
-
-.search-box[data-clicked='true'] {
-
-    border-radius: none;
-    height: 0;
-    width: 0;
     position: absolute;
-
+    right: 7rem;
+    /* border-radius: 50%; */
 }
 
-.main__search-icon[data-clicked='true'] {
-    border-right: 1px solid gray;
+.search__input {
+    width: 100%;
+    /* border: none; */
+    height: 100%;
+    padding-left: 1rem;
 }
 
 .search-box[data-clicked='true'] {
@@ -115,9 +102,6 @@ body {
     position: absolute;
 
 }
-
-
-
 
 .button {
     width: 3.8rem;
@@ -132,7 +116,7 @@ body {
 
 .button__add-task {
     background-color: #6c76e0;
-    border: none;
+    /* border: none; */
     border-radius: 10%;
     right: 0;
     position: absolute;
@@ -174,7 +158,8 @@ body {
 }
 
 
-.input__task {
+.input__task,
+.search__input {
     color: #847399;
     font-weight: 500;
     height: 3.8rem;
@@ -187,12 +172,14 @@ body {
     transition: border .3s linear;
 }
 
-.input__task::placeholder {
+.input__task::placeholder,
+.search__input::placeholder {
     color: #847399;
     font-weight: 500;
 }
 
-.input__task:focus {
+.input__task:focus,
+.search__input:focus {
     outline: none;
     /* backface-visibility: hidden; */
     /* border: 2px solid red; */
@@ -230,7 +217,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
+    margin: 1.5rem 0 1.5rem 0;
     border-bottom: 1px solid #6cb3e0;
 
 }
