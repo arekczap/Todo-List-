@@ -27,7 +27,6 @@ reloadArray = () => {
   newTasksWithoutFinished.length = 0;
   sortedArray.length = 0;
 
-
   tasks.forEach((task, index) => {
     task.dataset.finished == "true" ?
       newTasksWithFinished.push(task) :
@@ -37,19 +36,15 @@ reloadArray = () => {
 
   sortedArray = newTasksWithoutFinished.concat(newTasksWithFinished);
 
-
-  // newArr.forEach((task) => {
-  //   getDom.taskList.append(task)
-  // }
-
-  (getDom.searchInput.value.length !== 0) ? newArr.forEach((task) => {
-    getDom.taskList.append(task)
-  }): sortedArray.forEach((task) => {
-    getDom.taskList.append(task)
-  })
-
-
-
+  if (getDom.searchInput.value.length !== 0) {
+    newArr.forEach((task) => {
+      getDom.taskList.append(task)
+    })
+  } else {
+    sortedArray.forEach((task) => {
+      getDom.taskList.append(task);
+    })
+  }
   getDom.input.value = "";
 }
 
@@ -69,7 +64,6 @@ removeTask = (e) => {
 
 finishTask = (e) => {
   const finishButton = e.target.parentNode;
-  const taskValue = e.target.parentNode.parentNode.parentNode.firstChild;
   const idTaskLi = e.target.parentNode.parentNode.parentNode.parentNode;
   finishButton.classList.toggle("finished");
 
@@ -87,8 +81,7 @@ filterTasks = (e) => {
       return element.firstChild.firstChild.textContent.toLowerCase().includes(e.target.value.toLowerCase());
     });
     reloadArray();
-  }
-
+  };
 }
 
 addTask = (e) => {
@@ -99,6 +92,7 @@ addTask = (e) => {
     getDom.input.value.trim() == " ") {
 
     addInvalidLabel("true");
+
     getDom.input.value = "";
   } else {
 
