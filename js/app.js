@@ -10,16 +10,15 @@ const tasks = [];
 const newTasksWithFinished = [];
 const newTasksWithoutFinished = [];
 let sortedArray = [];
+let newArr = [];
 let finishedTask;
 
 // dodawanie label w przypadku nie wprowadzenia wartości
 addInvalidLabel = (state) => {
 
-
   state == "true" ?
     getDom.labelInput.dataset.active = "true" :
     getDom.labelInput.dataset.active = "false";
-
 };
 
 reloadArray = () => {
@@ -28,19 +27,31 @@ reloadArray = () => {
   newTasksWithoutFinished.length = 0;
   sortedArray.length = 0;
 
+
   tasks.forEach((task, index) => {
-    task.dataset.finished == "true" ? newTasksWithFinished.push(task) : newTasksWithoutFinished.push(task);
+    task.dataset.finished == "true" ?
+      newTasksWithFinished.push(task) :
+      newTasksWithoutFinished.push(task);
     task.dataset.id = index;
   });
 
   sortedArray = newTasksWithoutFinished.concat(newTasksWithFinished);
 
-  sortedArray.forEach((task) => {
-    getDom.taskList.append(task);
-  });
+
+  // newArr.forEach((task) => {
+  //   getDom.taskList.append(task)
+  // }
+
+  (getDom.searchInput.value.length !== 0) ? newArr.forEach((task) => {
+    getDom.taskList.append(task)
+  }): sortedArray.forEach((task) => {
+    getDom.taskList.append(task)
+  })
+
+
 
   getDom.input.value = "";
-};
+}
 
 createLiElement = () => {
   const liElement = document.createElement("li");
@@ -70,29 +81,27 @@ finishTask = (e) => {
 };
 
 filterTasks = (e) => {
-  const searchText = e.target.value.toLowerCase();
-  let newArr = sortedArray;
-  newArr = newArr.filter(element => {
-    // element.textContent.toLowerCase().includes(searchText);
-    console.log(element.textContent)
-    element.textContent.toLowerCase() == searchText;
-  });
 
-  console.log("search: " + searchText)
-  console.log("new arr: " + sortedArray)
-
-
-  // newArr.length = 0;
+  if (sortedArray.length > 0) {
+    newArr = sortedArray.filter((element) => {
+      return element.firstChild.firstChild.textContent.toLowerCase().includes(e.target.value.toLowerCase());
+    });
+    reloadArray();
+  }
 
 }
 
 addTask = (e) => {
   e.preventDefault();
   //sprawdzanie czy input nie jest pusty czy nie ma białych spacji
-  if (getDom.input.value.trim() == "" || getDom.input.value.trim() == null || getDom.input.value.trim() == " ") {
+  if (getDom.input.value.trim() == "" ||
+    getDom.input.value.trim() == null ||
+    getDom.input.value.trim() == " ") {
+
     addInvalidLabel("true");
     getDom.input.value = "";
   } else {
+
     addInvalidLabel("false");
     //tworzenie elementu li
     var liElement = createLiElement();
@@ -114,10 +123,7 @@ addTask = (e) => {
 
 //event na nacisnięcie przycisku po czym label w formularzu zostanie schowana
 getDom.input.addEventListener("keypress", () => addInvalidLabel("false"));
-
-
 //filtrowanie taskow
 getDom.searchInput.addEventListener('input', filterTasks);
-
 //dodanie tasku
 getDom.addButton.addEventListener("click", addTask);

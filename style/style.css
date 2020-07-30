@@ -44,6 +44,7 @@ body {
     letter-spacing: 1px;
     text-align: center;
     font-size: 3rem;
+    margin-bottom: 3rem;
 }
 
 .icon-resize-full::before {
@@ -55,22 +56,21 @@ body {
 .section__main {
     position: relative;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     height: 4rem;
     width: 100%;
-    /* position: relative; */
-    /* margin-bottom: rem; */
-    /* transition: top 0.2s linear; */
+    margin-bottom: 2rem;
 }
 
 .main__search {
+    position: relative;
     width: 100%;
     margin-top: 1rem;
     height: 3.7rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    top: -6rem;
+    /* top: -6rem; */
 
     border-radius: 3px;
 
@@ -80,15 +80,13 @@ body {
     width: 3rem;
     /* position: absolute; */
     margin-right: .5rem;
-    cursor: pointer;
     position: absolute;
-    right: 7rem;
+    right: .5rem;
     /* border-radius: 50%; */
 }
 
 .search__input {
     width: 100%;
-    /* border: none; */
     height: 100%;
     padding-left: 1rem;
 }
