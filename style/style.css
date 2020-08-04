@@ -9,12 +9,15 @@
 html {
     font-size: 62.5%;
     height: 100vh;
+    /* background-color: black; */
 }
 
 body {
     background-color: rgba(249, 249, 249, 1);
     font-family: "Roboto", sans-serif;
 }
+
+
 
 .container {
     width: 50%;
@@ -56,7 +59,6 @@ body {
 .section__main {
     position: relative;
     display: flex;
-    /* align-items: center; */
     height: 4rem;
     width: 100%;
     margin-bottom: 2rem;
@@ -70,19 +72,15 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* top: -6rem; */
-
     border-radius: 3px;
 
 }
 
 .main__search-icon {
     width: 3rem;
-    /* position: absolute; */
     margin-right: .5rem;
     position: absolute;
     right: .5rem;
-    /* border-radius: 50%; */
 }
 
 .search__input {
@@ -93,7 +91,6 @@ body {
 
 .search-box[data-clicked='true'] {
     border: 1px solid black;
-
     border-radius: 20px;
     height: 90%;
     width: 100%;
@@ -114,7 +111,6 @@ body {
 
 .button__add-task {
     background-color: #6c76e0;
-    /* border: none; */
     border-radius: 10%;
     right: 0;
     position: absolute;
@@ -142,17 +138,13 @@ body {
     letter-spacing: 1px;
     transition: 0.2s linear;
     visibility: hidden;
-
     z-index: -1;
-    /* opacity: 0; */
 }
 
 .input__label[data-active="true"] {
 
     visibility: visible;
     top: -1.5rem;
-    /* z-index: -1; */
-    /* opacity: 1; */
 }
 
 
@@ -179,17 +171,11 @@ body {
 .input__task:focus,
 .search__input:focus {
     outline: none;
-    /* backface-visibility: hidden; */
-    /* border: 2px solid red; */
 }
 
 .input__task:focus:invalid {
     border: 2px solid red;
 }
-
-/* .input__task:valid {
-  border: 2px solid #6cb3e0;
-} */
 
 .icon-plus::before,
 .icon-ok::before,
@@ -202,7 +188,6 @@ body {
     width: 100%;
     height: 100%;
     color: white;
-
     z-index: 999;
 }
 
@@ -217,7 +202,6 @@ body {
     padding-bottom: 1rem;
     margin: 1.5rem 0 1.5rem 0;
     border-bottom: 1px solid #6cb3e0;
-
 }
 
 .task {
@@ -227,7 +211,6 @@ body {
     font-weight: 600;
     letter-spacing: 1px;
     text-decoration: none;
-
 }
 
 .task__item[data-finished='true'] .task__container .task {
@@ -319,8 +302,3 @@ body {
         padding: 2rem;
     }
 }
-
-
-
-
-/* KEYFRAMES  */

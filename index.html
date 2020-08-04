@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ToDo List ✈</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="icons/css/fontello.css" />
-    <link rel="stylesheet" href="style/style.css" />
-  </head>
-  <body>
-    <main class="container">
-      <section class="section__header">
-        <div class="logo">
-          <span class="logo__name">a.cz <span class="icon-resize-full"></span></span></span>
-        </div>
-        <h1 class="heading__primary">Todo List</h1>
-        <span class="main__search"><input type="text" class="search__input" placeholder="Search a task"><img class="main__search-icon" src="assets/search-black-18dp.svg" alt="search icon" data-clicked = 'false'></span>
-      </section>
-      <form class="section__main">
-        
-        <label for="task" class="input__label "data-active = 'false' >Enter the task</label>
-        <input type="text" class="input__task" name="task" placeholder="Add New Task..."  required autocomplete="off"/>
-        <button class="button__add-task button ">
-          <span class="icon-plus"></span>
-        </button>
-      </form>
-      <section class="section__tasks">
-        <ul class="tasks__list">
-          <!-- <div class="task__container">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToDo List ✈</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="icons/css/fontello.css" />
+  <link rel="stylesheet" href="style/style.css" />
+</head>
+
+<body>
+  <main class="container">
+    <section class="section__header">
+      <div class="logo">
+        <span class="logo__name">a.cz <span class="icon-resize-full"></span></span></span>
+      </div>
+      <h1 class="heading__primary">Todo List</h1>
+      <span class="main__search"><input type="text" class="search__input" placeholder="Search a task"><img
+          class="main__search-icon" src="assets/search-black-18dp.svg" alt="search icon" data-clicked='false'></span>
+    </section>
+    <form class="section__main">
+
+      <label for="task" class="input__label " data-active='false'>Enter the task</label>
+      <input type="text" class="input__task" name="task" placeholder="Add New Task..." required autocomplete="off" />
+      <button class="button__add-task button ">
+        <span class="icon-plus"></span>
+      </button>
+    </form>
+    <section class="section__tasks">
+      <ul class="tasks__list">
+        <!-- <div class="task__container">
             <li class="task finished">dsfsd</li>
             <div class="task__content">
               <button class="finish__button button finished">
@@ -41,13 +43,12 @@
                 </button>
               </div>
             </div> -->
-        </ul>
-      </section>
-    </main>
+      </ul>
+    </section>
+  </main>
 
-   
-    <script src="js/app.js"></script>
-  </body>
+
+  <script src="js/app.js"></script>
+</body>
+
 </html>
-
-
